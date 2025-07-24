@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Geometria Super Fácil!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #005a8d;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 2em;
+            color: #005a8d;
+            border-bottom: 3px solid #ade8f4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #023e8a;
+        }
+        p, li {
+            font-size: 1.1em;
+            color: #444;
+        }
+        .concept-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #eaf7ff;
+            border-left: 5px solid #0077b6;
+            border-radius: 8px;
+        }
+        .concept-box img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            background-color: white; /* Adicionado para caso a imagem tenha fundo transparente */
+        }
+        .concept-text {
+            flex: 1;
+        }
+        .formula {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #023e8a;
+            overflow-x: auto; /* Garante que a fórmula não quebre o layout em telas pequenas */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0077b6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .concept-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guia de Geometria Super Fácil! 📐✨</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Os "Super-Pontos" dos Triângulos</h2>
+            <p>Todo triângulo tem uns pontos especiais, que aparecem quando a gente traça umas linhas mágicas dentro dele. Vamos conhecer os principais!</p>
+
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Desenho do Baricentro">
+                <div class="concept-text">
+                    <h3>a) Baricentro: O Ponto de Equilíbrio 🤸</h3>
+                    <p>Imagine que o triângulo é feito de papelão. O baricentro é o único ponto onde você conseguiria equilibrá-lo na ponta do dedo! Para achá-lo, ligue cada vértice ao meio do lado oposto. Essa linha se chama <strong>mediana</strong>. Onde as três se cruzam, está o Baricentro.</p>
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Desenho do Incentro">
+                <div class="concept-text">
+                    <h3>b) Incentro: O Centro do Círculo de Dentro 🎯</h3>
+                    <p>Esse é o centro de um círculo que cabe perfeitamente dentro do triângulo. Para achá-lo, divida cada ângulo em dois iguais com uma linha (<strong>bissetriz</strong>). O ponto de encontro delas é o Incentro.</p>
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Desenho do Circuncentro">
+                <div class="concept-text">
+                    <h3>c) Circuncentro: O Centro do Círculo de Fora ⭕</h3>
+                    <p>É o centro de um círculo que passa por fora do triângulo, tocando nas três pontas. Para achá-lo, trace uma reta de 90° em cima do ponto médio de cada lado. Essa reta é a <strong>mediatriz</strong>. O ponto de encontro delas é o Circuncentro.</p>
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Desenho do Ortocentro">
+                <div class="concept-text">
+                    <h3>d) Ortocentro: O Encontro das Alturas 🧗</h3>
+                    <p>A <strong>altura</strong> é uma linha que sai de um vértice e desce retinha (formando 90°) até o lado oposto. O ponto onde as três alturas se encontram é o Ortocentro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. O Clube dos Quadriláteros</h2>
+            <p>Essa é a família dos polígonos de 4 lados. A regra principal da turma dos <strong>Paralelogramos</strong> é que os lados opostos são sempre paralelos.</p>
+            
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Família dos Paralelogramos">
+                <div class="concept-text">
+                    <h3>A Família dos Paralelogramos</h3>
+                    <ul>
+                        <li><strong>Retângulo:</strong> Tem 4 ângulos de 90°.</li>
+                        <li><strong>Losango:</strong> Tem 4 lados iguais.</li>
+                        <li><strong>Quadrado:</strong> É um Retângulo E um Losango. Tem 4 ângulos de 90° E 4 lados iguais!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Teorema da Base Média (O Atalho do Triângulo)</h3>
+            <div class="concept-box">
+                <img src="data:image/png;base64,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" alt="Desenho da Base Média">
+                <div class="concept-text">
+                    <p>Isso é muito útil! Se você ligar os pontos médios de dois lados de um triângulo, essa linha (a <strong>base média</strong>) será sempre paralela ao terceiro lado e terá <strong>exatamente a metade</strong> do seu tamanho.</p>
+                    <p><strong>Exemplo:</strong> Se a base maior mede 20 cm, a base média paralela a ela medirá 10 cm. Simples assim!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. A Galera dos Polígonos e Suas Fórmulas</h2>
+            <p>Polígonos são figuras fechadas com vários lados. Veja o nome de alguns:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lados</th>
+                        <th>Nome</th>
+                        <th>Lados</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td>Triângulo</td>
+                        <td>8</td>
+                        <td>Octógono</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Quadrilátero</td>
+                        <td>9</td>
+                        <td>Eneágono</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Pentágono</td>
+                        <td>10</td>
+                        <td>Decágono</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Hexágono</td>
+                        <td>12</td>
+                        <td>Dodecágono</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Heptágono</td>
+                        <td>20</td>
+                        <td>Icoságono</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Fórmulas Mágicas (para um polígono de 'n' lados)</h3>
+
+            <p><strong>Número de Diagonais (d):</strong></p>
+            <div class="formula">d = n * (n - 3) / 2</div>
+            
+            <p><strong>Soma dos Ângulos Internos (S<sub>i</sub>):</strong></p>
+            <div class="formula">S<sub>i</sub> = (n - 2) * 180°</div>
+            
+            <p><strong>Ângulo Interno de um Polígono Regular (a<sub>i</sub>):</strong></p>
+            <div class="formula">a<sub>i</sub> = (n - 2) * 180° / n</div>
+            
+            <p><strong>Ângulo Externo de um Polígono Regular (a<sub>e</sub>):</strong></p>
+            <div class="formula">a<sub>e</sub> = 360° / n</div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Feito com carinho para ajudar nos estudos! ✨</p>
+    </footer>
+
+</body>
+</html>
