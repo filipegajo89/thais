@@ -10,259 +10,520 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
+            min-height: 100vh;
         }
+        
+        .container {
+            background-color: #f4f7f9;
+            min-height: 100vh;
+        }
+        
         header {
-            background-color: #0077b6;
+            background: linear-gradient(135deg, #0077b6, #005a8d);
             color: #fff;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
-            border-bottom: 5px solid #005a8d;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite alternate;
         }
+        
+        @keyframes glow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2); }
+            to { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.4); }
+        }
+        
         main {
-            padding: 20px;
-            max-width: 900px;
-            margin: 30px auto;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-top: -20px;
+            position: relative;
+            z-index: 2;
         }
+        
         section {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        section:last-child {
-            border-bottom: none;
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
+        
         h2 {
-            font-size: 2em;
+            font-size: 2.2em;
             color: #005a8d;
-            border-bottom: 3px solid #ade8f4;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #0077b6, #ade8f4);
+            border-radius: 2px;
+        }
+        
         h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #023e8a;
+            margin-bottom: 15px;
         }
+        
         p, li {
             font-size: 1.1em;
             color: #444;
+            text-align: justify;
         }
+        
         .concept-box {
             display: flex;
             align-items: center;
             gap: 30px;
             margin-bottom: 30px;
-            padding: 20px;
-            background-color: #eaf7ff;
-            border-left: 5px solid #0077b6;
-            border-radius: 8px;
+            padding: 25px;
+            background: linear-gradient(135deg, #eaf7ff, #f0f9ff);
+            border-left: 6px solid #0077b6;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,119,182,0.1);
+            transition: all 0.3s ease;
         }
-        .concept-box img {
-            max-width: 200px;
+        
+        .concept-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,119,182,0.2);
+        }
+        
+        .svg-container {
+            min-width: 220px;
+            max-width: 220px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
+        
         .concept-text {
             flex: 1;
         }
+        
         .formula {
-            background-color: #e9ecef;
-            border: 1px solid #ced4da;
-            padding: 15px;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            border: 2px solid #0077b6;
+            padding: 20px;
+            border-radius: 10px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2em;
+            font-size: 1.3em;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
             font-weight: bold;
             color: #023e8a;
-            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        
+        .formula:hover {
+            transform: scale(1.05);
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
+            padding: 15px 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
         }
+        
         th {
-            background-color: #0077b6;
+            background: linear-gradient(135deg, #0077b6, #005a8d);
             color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
+        
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
         }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+        
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #666;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
         }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7, #fdcb6e);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             .concept-box {
                 flex-direction: column;
                 text-align: center;
             }
+            
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
+            
             h2 {
                 font-size: 1.8em;
+            }
+            
+            main {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .svg-container {
+                min-width: 180px;
+                max-width: 180px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Guia de Geometria Super Fácil! 📐✨</h1>
+        </header>
 
-    <header>
-        <h1>Guia de Geometria Super Fácil! 📐✨</h1>
-    </header>
+        <main>
+            <section>
+                <h2>1. Os "Super-Pontos" dos Triângulos</h2>
+                <p>Todo triângulo tem pontos especiais, que aparecem quando traçamos linhas mágicas dentro dele. Vamos conhecer os principais!</p>
 
-    <main>
-        <section>
-            <h2>1. Os "Super-Pontos" dos Triângulos</h2>
-            <p>Todo triângulo tem uns pontos especiais, que aparecem quando a gente traça umas linhas mágicas dentro dele. Vamos conhecer os principais!</p>
-
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/baricentro.png" alt="Desenho do Baricentro">
-                <div class="concept-text">
-                    <h3>a) Baricentro: O Ponto de Equilíbrio 🤸</h3>
-                    <p>Imagine que o triângulo é feito de papelão. O baricentro é o único ponto onde você conseguiria equilibrá-lo na ponta do dedo! Para achá-lo, ligue cada vértice ao meio do lado oposto. Essa linha se chama <strong>mediana</strong>. Onde as três se cruzam, está o Baricentro.</p>
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Triângulo -->
+                            <polygon points="95,20 30,140 160,140" fill="none" stroke="#0077b6" stroke-width="2"/>
+                            
+                            <!-- Medianas -->
+                            <line x1="95" y1="20" x2="95" y2="140" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="30" y1="140" x2="127.5" y2="80" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="160" y1="140" x2="62.5" y2="80" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                            
+                            <!-- Baricentro -->
+                            <circle cx="95" cy="100" r="4" fill="#e74c3c"/>
+                            <text x="105" y="95" font-family="Arial" font-size="12" fill="#e74c3c" font-weight="bold">G</text>
+                            
+                            <!-- Vértices -->
+                            <circle cx="95" cy="20" r="3" fill="#0077b6"/>
+                            <circle cx="30" cy="140" r="3" fill="#0077b6"/>
+                            <circle cx="160" cy="140" r="3" fill="#0077b6"/>
+                            
+                            <!-- Labels -->
+                            <text x="95" y="15" font-family="Arial" font-size="11" fill="#0077b6" text-anchor="middle">A</text>
+                            <text x="25" y="150" font-family="Arial" font-size="11" fill="#0077b6" text-anchor="middle">B</text>
+                            <text x="165" y="150" font-family="Arial" font-size="11" fill="#0077b6" text-anchor="middle">C</text>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <h3>a) Baricentro: O Ponto de Equilíbrio 🤸</h3>
+                        <p>Imagine que o triângulo é feito de papelão. O baricentro é o único ponto onde você conseguiria equilibrá-lo na ponta do dedo! Para achá-lo, ligue cada vértice ao meio do lado oposto. Essa linha se chama <span class="highlight">mediana</span>. Onde as três se cruzam, está o Baricentro.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/incentro.png" alt="Desenho do Incentro">
-                <div class="concept-text">
-                    <h3>b) Incentro: O Centro do Círculo de Dentro 🎯</h3>
-                    <p>Esse é o centro de um círculo que cabe perfeitamente dentro do triângulo. Para achá-lo, divida cada ângulo em dois iguais com uma linha (<strong>bissetriz</strong>). O ponto de encontro delas é o Incentro.</p>
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Triângulo -->
+                            <polygon points="95,20 30,140 160,140" fill="none" stroke="#0077b6" stroke-width="2"/>
+                            
+                            <!-- Bissetrizes -->
+                            <line x1="95" y1="20" x2="95" y2="120" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="30" y1="140" x2="110" y2="75" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="160" y1="140" x2="80" y2="75" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3"/>
+                            
+                            <!-- Incírculo -->
+                            <circle cx="95" cy="115" r="25" fill="none" stroke="#27ae60" stroke-width="1.5" opacity="0.7"/>
+                            
+                            <!-- Incentro -->
+                            <circle cx="95" cy="115" r="4" fill="#27ae60"/>
+                            <text x="105" y="110" font-family="Arial" font-size="12" fill="#27ae60" font-weight="bold">I</text>
+                            
+                            <!-- Vértices -->
+                            <circle cx="95" cy="20" r="3" fill="#0077b6"/>
+                            <circle cx="30" cy="140" r="3" fill="#0077b6"/>
+                            <circle cx="160" cy="140" r="3" fill="#0077b6"/>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <h3>b) Incentro: O Centro do Círculo de Dentro 🎯</h3>
+                        <p>Esse é o centro de um círculo que cabe perfeitamente dentro do triângulo. Para achá-lo, divida cada ângulo em dois iguais com uma linha (<span class="highlight">bissetriz</span>). O ponto de encontro delas é o Incentro.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/circuncentro.png" alt="Desenho do Circuncentro">
-                <div class="concept-text">
-                    <h3>c) Circuncentro: O Centro do Círculo de Fora ⭕</h3>
-                    <p>É o centro de um círculo que passa por fora do triângulo, tocando nas três pontas. Para achá-lo, trace uma reta de 90° em cima do ponto médio de cada lado. Essa reta é a <strong>mediatriz</strong>. O ponto de encontro delas é o Circuncentro.</p>
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Triângulo -->
+                            <polygon points="95,20 30,140 160,140" fill="none" stroke="#0077b6" stroke-width="2"/>
+                            
+                            <!-- Mediatrizes -->
+                            <line x1="95" y1="10" x2="95" y2="150" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="10" y1="80" x2="120" y2="80" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="70" y1="80" x2="120" y2="80" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,3"/>
+                            
+                            <!-- Circuncírculo -->
+                            <circle cx="95" cy="80" r="60" fill="none" stroke="#9b59b6" stroke-width="1.5" opacity="0.7"/>
+                            
+                            <!-- Circuncentro -->
+                            <circle cx="95" cy="80" r="4" fill="#9b59b6"/>
+                            <text x="105" y="75" font-family="Arial" font-size="12" fill="#9b59b6" font-weight="bold">O</text>
+                            
+                            <!-- Vértices -->
+                            <circle cx="95" cy="20" r="3" fill="#0077b6"/>
+                            <circle cx="30" cy="140" r="3" fill="#0077b6"/>
+                            <circle cx="160" cy="140" r="3" fill="#0077b6"/>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <h3>c) Circuncentro: O Centro do Círculo de Fora ⭕</h3>
+                        <p>É o centro de um círculo que passa por fora do triângulo, tocando nas três pontas. Para achá-lo, trace uma reta de 90° no ponto médio de cada lado. Essa reta é a <span class="highlight">mediatriz</span>. O ponto de encontro delas é o Circuncentro.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/ortocentro.png" alt="Desenho do Ortocentro">
-                <div class="concept-text">
-                    <h3>d) Ortocentro: O Encontro das Alturas 🧗</h3>
-                    <p>A <strong>altura</strong> é uma linha que sai de um vértice e desce retinha (formando 90°) até o lado oposto. O ponto onde as três alturas se encontram é o Ortocentro.</p>
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Triângulo -->
+                            <polygon points="95,20 30,140 160,140" fill="none" stroke="#0077b6" stroke-width="2"/>
+                            
+                            <!-- Alturas -->
+                            <line x1="95" y1="20" x2="95" y2="140" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="30" y1="140" x2="127.5" y2="80" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                            <line x1="160" y1="140" x2="62.5" y2="80" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                            
+                            <!-- Marcas de 90° -->
+                            <rect x="90" y="135" width="10" height="10" fill="none" stroke="#f39c12" stroke-width="1"/>
+                            
+                            <!-- Ortocentro -->
+                            <circle cx="95" cy="100" r="4" fill="#f39c12"/>
+                            <text x="105" y="95" font-family="Arial" font-size="12" fill="#f39c12" font-weight="bold">H</text>
+                            
+                            <!-- Vértices -->
+                            <circle cx="95" cy="20" r="3" fill="#0077b6"/>
+                            <circle cx="30" cy="140" r="3" fill="#0077b6"/>
+                            <circle cx="160" cy="140" r="3" fill="#0077b6"/>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <h3>d) Ortocentro: O Encontro das Alturas 🧗</h3>
+                        <p>A <span class="highlight">altura</span> é uma linha que sai de um vértice e desce retinha (formando 90°) até o lado oposto. O ponto onde as três alturas se encontram é o Ortocentro.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <h2>2. O Clube dos Quadriláteros</h2>
-            <p>Essa é a família dos polígonos de 4 lados. A regra principal da turma dos <strong>Paralelogramos</strong> é que os lados opostos são sempre paralelos.</p>
-            
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/paralelogramos.png" alt="Família dos Paralelogramos">
-                <div class="concept-text">
-                    <h3>A Família dos Paralelogramos</h3>
-                    <ul>
-                        <li><strong>Retângulo:</strong> Tem 4 ângulos de 90°.</li>
-                        <li><strong>Losango:</strong> Tem 4 lados iguais.</li>
-                        <li><strong>Quadrado:</strong> É um Retângulo E um Losango. Tem 4 ângulos de 90° E 4 lados iguais!</li>
-                    </ul>
+            <section>
+                <h2>2. O Clube dos Quadriláteros</h2>
+                <p>Essa é a família dos polígonos de 4 lados. A regra principal da turma dos <span class="highlight">Paralelogramos</span> é que os lados opostos são sempre paralelos.</p>
+                
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Paralelogramo genérico -->
+                            <polygon points="30,130 140,130 160,50 50,50" fill="rgba(0,119,182,0.1)" stroke="#0077b6" stroke-width="2"/>
+                            <text x="95" y="25" font-family="Arial" font-size="14" fill="#0077b6" text-anchor="middle" font-weight="bold">Paralelogramo</text>
+                            
+                            <!-- Retângulo -->
+                            <rect x="20" y="40" width="60" height="35" fill="rgba(231,76,60,0.1)" stroke="#e74c3c" stroke-width="2"/>
+                            <text x="50" y="35" font-family="Arial" font-size="11" fill="#e74c3c" text-anchor="middle" font-weight="bold">Retângulo</text>
+                            
+                            <!-- Losango -->
+                            <polygon points="140,57.5 160,40 140,22.5 120,40" fill="rgba(39,174,96,0.1)" stroke="#27ae60" stroke-width="2"/>
+                            <text x="140" y="15" font-family="Arial" font-size="11" fill="#27ae60" text-anchor="middle" font-weight="bold">Losango</text>
+                            
+                            <!-- Quadrado -->
+                            <rect x="105" y="100" width="35" height="35" fill="rgba(155,89,182,0.1)" stroke="#9b59b6" stroke-width="2"/>
+                            <text x="122.5" y="95" font-family="Arial" font-size="11" fill="#9b59b6" text-anchor="middle" font-weight="bold">Quadrado</text>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <h3>A Família dos Paralelogramos</h3>
+                        <ul>
+                            <li><strong>Retângulo:</strong> Tem 4 ângulos de 90°.</li>
+                            <li><strong>Losango:</strong> Tem 4 lados iguais.</li>
+                            <li><strong>Quadrado:</strong> É um Retângulo E um Losango. Tem 4 ângulos de 90° E 4 lados iguais!</li>
+                            <li><strong>Paralelogramo:</strong> É o "pai" da família - lados opostos paralelos e iguais.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <h3>Teorema da Base Média (O Atalho do Triângulo)</h3>
-            <div class="concept-box">
-                <img src="https://storage.googleapis.com/assistente-de-dados/geometria/base-media.png" alt="Desenho da Base Média">
-                <div class="concept-text">
-                    <p>Isso é muito útil! Se você ligar os pontos médios de dois lados de um triângulo, essa linha (a <strong>base média</strong>) será sempre paralela ao terceiro lado e terá <strong>exatamente a metade</strong> do seu tamanho.</p>
-                    <p><strong>Exemplo:</strong> Se a base maior mede 20 cm, a base média paralela a ela medirá 10 cm. Simples assim!</p>
+                <h3>Teorema da Base Média (O Atalho do Triângulo)</h3>
+                <div class="concept-box">
+                    <div class="svg-container">
+                        <svg width="190" height="160" viewBox="0 0 190 160">
+                            <!-- Triângulo -->
+                            <polygon points="95,20 30,140 160,140" fill="rgba(0,119,182,0.1)" stroke="#0077b6" stroke-width="2"/>
+                            
+                            <!-- Base média -->
+                            <line x1="62.5" y1="80" x2="127.5" y2="80" stroke="#e74c3c" stroke-width="3"/>
+                            
+                            <!-- Pontos médios -->
+                            <circle cx="62.5" cy="80" r="4" fill="#e74c3c"/>
+                            <circle cx="127.5" cy="80" r="4" fill="#e74c3c"/>
+                            
+                            <!-- Medidas -->
+                            <text x="95" y="75" font-family="Arial" font-size="12" fill="#e74c3c" text-anchor="middle" font-weight="bold">10 cm</text>
+                            <text x="95" y="155" font-family="Arial" font-size="12" fill="#0077b6" text-anchor="middle" font-weight="bold">20 cm</text>
+                            
+                            <!-- Setas indicativas -->
+                            <path d="M60,85 Q95,95 130,85" fill="none" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            <text x="95" y="105" font-family="Arial" font-size="10" fill="#27ae60" text-anchor="middle">Paralela à base</text>
+                            
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="concept-text">
+                        <p>Isso é muito útil! Se você ligar os pontos médios de dois lados de um triângulo, essa linha (a <span class="highlight">base média</span>) será sempre paralela ao terceiro lado e terá <strong>exatamente a metade</strong> do seu tamanho.</p>
+                        <p><strong>Exemplo:</strong> Se a base maior mede 20 cm, a base média paralela a ela medirá 10 cm. Simples assim!</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <h2>3. A Galera dos Polígonos e Suas Fórmulas</h2>
-            <p>Polígonos são figuras fechadas com vários lados. Veja o nome de alguns:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lados</th>
-                        <th>Nome</th>
-                        <th>Lados</th>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>3</td>
-                        <td>Triângulo</td>
-                        <td>8</td>
-                        <td>Octógono</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Quadrilátero</td>
-                        <td>9</td>
-                        <td>Eneágono</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Pentágono</td>
-                        <td>10</td>
-                        <td>Decágono</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Hexágono</td>
-                        <td>12</td>
-                        <td>Dodecágono</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Heptágono</td>
-                        <td>20</td>
-                        <td>Icoságono</td>
-                    </tr>
-                </tbody>
-            </table>
+            <section>
+                <h2>3. A Galera dos Polígonos e Suas Fórmulas</h2>
+                <p>Polígonos são figuras fechadas com vários lados. Veja o nome de alguns:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lados</th>
+                            <th>Nome</th>
+                            <th>Lados</th>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Triângulo</td>
+                            <td>8</td>
+                            <td>Octógono</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Quadrilátero</td>
+                            <td>9</td>
+                            <td>Eneágono</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Pentágono</td>
+                            <td>10</td>
+                            <td>Decágono</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Hexágono</td>
+                            <td>12</td>
+                            <td>Dodecágono</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Heptágono</td>
+                            <td>20</td>
+                            <td>Icoságono</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <h3>Fórmulas Mágicas (para um polígono de 'n' lados)</h3>
+                <h3>Fórmulas Mágicas (para um polígono de 'n' lados)</h3>
 
-            <p><strong>Número de Diagonais (d):</strong></p>
-            <div class="formula">d = n * (n - 3) / 2</div>
-            
-            <p><strong>Soma dos Ângulos Internos (S<sub>i</sub>):</strong></p>
-            <div class="formula">S<sub>i</sub> = (n - 2) * 180°</div>
-            
-            <p><strong>Ângulo Interno de um Polígono Regular (a<sub>i</sub>):</strong></p>
-            <div class="formula">a<sub>i</sub> = (n - 2) * 180° / n</div>
-            
-            <p><strong>Ângulo Externo de um Polígono Regular (a<sub>e</sub>):</strong></p>
-            <div class="formula">a<sub>e</sub> = 360° / n</div>
-            
-        </section>
-    </main>
+                <p><strong>Número de Diagonais (d):</strong></p>
+                <div class="formula">d = n × (n - 3) ÷ 2</div>
+                
+                <p><strong>Soma dos Ângulos Internos (S<sub>i</sub>):</strong></p>
+                <div class="formula">S<sub>i</sub> = (n - 2) × 180°</div>
+                
+                <p><strong>Ângulo Interno de um Polígono Regular (a<sub>i</sub>):</strong></p>
+                <div class="formula">a<sub>i</sub> = (n - 2) × 180° ÷ n</div>
+                
+                <p><strong>Ângulo Externo de um Polígono Regular (a<sub>e</sub>):</strong></p>
+                <div class="formula">a<sub>e</sub> = 360° ÷ n</div>
 
-    <footer>
-        <p>Feito com carinho para ajudar nos estudos! ✨</p>
-    </footer>
+                <div style="background: linear-gradient(135deg, #fff3cd, #ffeaa7); padding: 20px; border-radius: 10px; margin-top: 30px; border-left: 5px solid #f39c12;">
+                    <h3 style="color: #e67e22; margin-top: 0;">💡 Dica Especial!</h3>
+                    <p><strong>Lembre-se:</strong> A soma de todos os ângulos externos de qualquer polígono é sempre <span class="highlight">360°</span>, não importa quantos lados ele tenha!</p>
+                </div>
+            </section>
+        </main>
 
+        <footer>
+            <p>Feito com muito carinho para ajudar nos estudos de matemática! ✨📚</p>
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
+                "A matemática é a linguagem com que Deus escreveu o universo" - Galileu Galilei
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
